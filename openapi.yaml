@@ -1,0 +1,17 @@
+openapi: "3.0.0"
+info:
+  title: "StackTrack API"
+  description: "Developer Portfolio API powered by Serinus 2.0"
+  version: "1.0.0"
+paths:
+  /skills/:
+    post:
+      tags:
+        - "SkillsController"
+      parameters: []
+      responses: {}
+    get:
+      tags:
+        - "SkillsController"
+      parameters: []
+      responses: {}
