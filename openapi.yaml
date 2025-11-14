@@ -9,9 +9,59 @@ paths:
       tags:
         - "SkillsController"
       parameters: []
-      responses: {}
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: "object"
+              properties:
+                name:
+                  type: "string"
+                yearsOfExperience:
+                  type: "integer"
+                  format: "int32"
+                category:
+                  type: "string"
+      responses:
+        201:
+          description: "Success response"
+          content:
+            application/json:
+              schema:
+                type: "object"
+                properties:
+                  id:
+                    type: "integer"
+                    format: "int32"
+                  name:
+                    type: "string"
+                  yearsOfExperience:
+                    type: "integer"
+                    format: "int32"
+                  category:
+                    type: "string"
     get:
       tags:
         - "SkillsController"
       parameters: []
-      responses: {}
+      responses:
+        200:
+          description: "Success response"
+          content:
+            application/json:
+              schema:
+                type: "array"
+                items:
+                  type: "object"
+                  properties:
+                    id:
+                      type: "integer"
+                      format: "int32"
+                    name:
+                      type: "string"
+                    yearsOfExperience:
+                      type: "integer"
+                      format: "int32"
+                    category:
+                      type: "string"
