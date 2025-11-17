@@ -65,3 +65,15 @@ paths:
                       format: "int32"
                     category:
                       type: "string"
+  /public/:
+    get:
+      tags:
+        - "ServeStaticController"
+      parameters: []
+      responses: {}
+  /public/*:
+    get:
+      tags:
+        - "ServeStaticController"
+      parameters: []
+      responses: {}
