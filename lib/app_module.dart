@@ -7,6 +7,7 @@ import 'package:serinus_serve_static/serinus_serve_static.dart';
 import 'controllers/skills_controller.dart';
 import 'database/database.dart';
 import 'providers/database_provider.dart';
+import 'services/skills_service.dart';
 
 class AppModule extends Module {
   AppModule()
@@ -25,6 +26,10 @@ class AppModule extends Module {
         ],
         providers: [
           DatabaseProvider(AppDatabase()),
+          Provider.composed<SkillsService>(
+            (CompositionContext context) async => SkillsService(databaseProvider: context.use<DatabaseProvider>()),
+            inject: [DatabaseProvider],
+          ),
         ],
         controllers: [
           SkillsController(),
