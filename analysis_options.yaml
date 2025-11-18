@@ -1,1 +1,4 @@
 include: package:serinus_lint/recommended.yaml
+analyzer:
+  errors:
+    prefer_single_quotes: ignore

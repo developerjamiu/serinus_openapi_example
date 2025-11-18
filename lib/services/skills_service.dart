@@ -4,14 +4,14 @@ import '../database/database.dart';
 import '../dtos/create_skill_dto.dart';
 import '../dtos/skill_response.dart';
 import '../dtos/update_skill_dto.dart';
-import '../providers/database_provider.dart';
+import 'database_service.dart';
 
 class SkillsService extends Provider {
-  final DatabaseProvider _databaseProvider;
+  final DatabaseService _databaseService;
 
-  const SkillsService({required DatabaseProvider databaseProvider}) : _databaseProvider = databaseProvider;
+  const SkillsService({required DatabaseService databaseService}) : _databaseService = databaseService;
 
-  AppDatabase get db => _databaseProvider();
+  AppDatabase get db => _databaseService();
 
   Future<SkillResponse> createSkill(CreateSkillDto dto) async {
     final id = await db

@@ -4,9 +4,11 @@ import 'package:serinus/serinus.dart';
 import 'package:serinus_openapi/serinus_openapi.dart';
 import 'package:serinus_serve_static/serinus_serve_static.dart';
 
+import 'controllers/projects_controller.dart';
 import 'controllers/skills_controller.dart';
 import 'database/database.dart';
-import 'providers/database_provider.dart';
+import 'services/database_service.dart';
+import 'services/projects_service.dart';
 import 'services/skills_service.dart';
 
 class AppModule extends Module {
@@ -25,14 +27,23 @@ class AppModule extends Module {
           ),
         ],
         providers: [
-          DatabaseProvider(AppDatabase()),
+          DatabaseService(AppDatabase()),
           Provider.composed<SkillsService>(
-            (CompositionContext context) async => SkillsService(databaseProvider: context.use<DatabaseProvider>()),
-            inject: [DatabaseProvider],
+            (CompositionContext context) async => SkillsService(
+              databaseService: context.use<DatabaseService>(),
+            ),
+            inject: [DatabaseService],
+          ),
+          Provider.composed<ProjectsService>(
+            (CompositionContext context) async => ProjectsService(
+              databaseService: context.use<DatabaseService>(),
+            ),
+            inject: [DatabaseService],
           ),
         ],
         controllers: [
           SkillsController(),
+          ProjectsController(),
         ],
       );
 }
