@@ -65,6 +65,73 @@ paths:
                       format: "int32"
                     category:
                       type: "string"
+  /skills/:id:
+    get:
+      tags:
+        - "SkillsController"
+      parameters: []
+      responses:
+        200:
+          description: "Success response"
+          content:
+            application/json:
+              schema:
+                type: "object"
+                properties:
+                  id:
+                    type: "integer"
+                    format: "int32"
+                  name:
+                    type: "string"
+                  yearsOfExperience:
+                    type: "integer"
+                    format: "int32"
+                  category:
+                    type: "string"
+    patch:
+      tags:
+        - "SkillsController"
+      parameters: []
+      responses:
+        200:
+          description: "Success response"
+          content:
+            application/json:
+              schema:
+                type: "object"
+                properties:
+                  id:
+                    type: "integer"
+                    format: "int32"
+                  name:
+                    type: "string"
+                  yearsOfExperience:
+                    type: "integer"
+                    format: "int32"
+                  category:
+                    type: "string"
+    delete:
+      tags:
+        - "SkillsController"
+      parameters: []
+      responses:
+        200:
+          description: "Success response"
+          content:
+            application/json:
+              schema:
+                type: "object"
+                properties:
+                  id:
+                    type: "integer"
+                    format: "int32"
+                  name:
+                    type: "string"
+                  yearsOfExperience:
+                    type: "integer"
+                    format: "int32"
+                  category:
+                    type: "string"
   /public/:
     get:
       tags:

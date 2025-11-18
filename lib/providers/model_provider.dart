@@ -2,6 +2,7 @@ import 'package:serinus/serinus.dart';
 
 import '../dtos/create_skill_dto.dart';
 import '../dtos/skill_response.dart';
+import '../dtos/update_skill_dto.dart';
 
 /// The [SerinusPulseModelProvider] is used to provide models for the Serinus application.
 /// It contains mappings for serializing and deserializing models to and from JSON.
@@ -11,6 +12,7 @@ class SerinusPulseModelProvider extends ModelProvider {
     return {
       'SkillResponse': (model) => (model as SkillResponse).toJson(),
       'CreateSkillDto': (model) => (model as CreateSkillDto).toJson(),
+      'UpdateSkillDto': (model) => (model as UpdateSkillDto).toJson(),
     };
   }
 
@@ -19,6 +21,7 @@ class SerinusPulseModelProvider extends ModelProvider {
     return {
       'SkillResponse': SkillResponse.fromJson,
       'CreateSkillDto': CreateSkillDto.fromJson,
+      'UpdateSkillDto': UpdateSkillDto.fromJson,
     };
   }
 }
